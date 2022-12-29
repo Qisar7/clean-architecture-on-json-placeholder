@@ -18,7 +18,6 @@ class CommentScreen extends StatefulWidget {
 class _CommentScreenState extends State<CommentScreen> {
   @override
   void initState() {
-    WidgetsFlutterBinding.ensureInitialized();
     BlocProvider.of<CommentBloc>(context)
         .add(GetPostCommentsEvent(postid: widget.postid));
     super.initState();
@@ -28,7 +27,8 @@ class _CommentScreenState extends State<CommentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("post comment"),
+        title: const Text("comments"),
+        centerTitle: true,
       ),
       body: _buidlcommentbody(),
     );

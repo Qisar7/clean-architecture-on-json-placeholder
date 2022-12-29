@@ -60,7 +60,7 @@ class PostRemoteDataSoruceImpl implements PostRemoteDataSource {
   @override
   Future<Unit> deletepost(int id) async {
     final response = await http.delete(
-      Uri.parse("$BASE_URL/post/${id.toString()}"),
+      Uri.parse("${BASE_URL}posts/$id"),
       // headers: {
       //   HttpHeaders.contentTypeHeader:
       // }

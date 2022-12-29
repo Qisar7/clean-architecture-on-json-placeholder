@@ -11,7 +11,7 @@ abstract class PostLocalDataSource {
   Future<Unit> cachedPost(List<PostModel> postmodel);
 }
 
-final String CACHED_POST = 'CACHED_POST';
+const String CACHED_POST = 'CACHED_POST';
 
 class PostLocalDataSourceimpl implements PostLocalDataSource {
   final SharedPreferences sharedPreferences;

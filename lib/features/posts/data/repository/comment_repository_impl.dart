@@ -29,17 +29,19 @@ class CommentRepositoryimplement extends CommentRepository {
   @override
   Future<Either<Failure, List<EntityComment>>> getpostcomment(
       int postid) async {
-    // if (await internetChecker.IsDiviceConnected) {
-    //   try {
-    //     final remotedata = await remoteDataSourceimpl.getpostcomment(postid);
-    //     return Right(remotedata);
-    //   } on ServerException {
-    //     return Left(ServerFailure());
-    //   }
-    // }
+    if (await internetChecker.IsDiviceConnected) {
+      try {
+        final remotedata = await remoteDataSourceimpl.getpostcomment(postid);
+        return Right(remotedata);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
 
-    return await _checkinternetandretrun(
-        remoteDataSourceimpl.getpostcomment(postid));
+    // return await _checkinternetandretrun(
+    //     remoteDataSourceimpl.getpostcomment(postid));
   }
 
   Future<Either<Failure, List<EntityComment>>> _checkinternetandretrun(

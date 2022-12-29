@@ -12,7 +12,7 @@ abstract class CommentRemoteDataSource {
   Future<List<CommentModel>> getpostcomment(int postid);
 }
 
-class CommentRemoteDataSourceimpl extends CommentRemoteDataSource {
+class CommentRemoteDataSourceimpl implements CommentRemoteDataSource {
   @override
   Future<List<CommentModel>> getallcomment() async {
     final response = await http.get(

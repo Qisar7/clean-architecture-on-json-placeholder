@@ -71,8 +71,10 @@ Future<void> init() async {
 
   sl.registerLazySingleton<PostRemoteDataSource>(
       () => PostRemoteDataSoruceImpl());
+
   sl.registerLazySingleton<PostLocalDataSource>(
       () => PostLocalDataSourceimpl(sharedPreferences: sl()));
+
   sl.registerLazySingleton<CommentRemoteDataSource>(
       () => CommentRemoteDataSourceimpl());
   // sl.registerLazySingleton<CommentRemoteDataSource>(

@@ -21,18 +21,45 @@ class Postcomment extends StatelessWidget {
   }
 
   Widget _ListofComment({required int index}) {
-    return ListTile(
-      title: Text(
-        comment[index].name,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Row(
+            children: [
+              Flexible(
+                child: Text(
+                  comment[index].name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
+          Text(
+            comment[index].body,
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                'email : ',
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                comment[index].email,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ],
       ),
-      trailing: Text(
-        comment[index].email,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      subtitle: Text(comment[index].body),
     );
   }
 }

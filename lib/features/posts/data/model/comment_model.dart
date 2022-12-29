@@ -1,13 +1,12 @@
-import 'dart:convert';
-
 import '../../domain/entity/comment.dart';
 
 class CommentModel extends EntityComment {
   CommentModel(
-      {required super.id,
-      required super.name,
-      required super.email,
-      required super.body});
+      {required int id,
+      required String name,
+      required String email,
+      required String body})
+      : super(id: id, body: body, email: email, name: name);
 
   factory CommentModel.fromJson(Map<String, dynamic> json) {
     return CommentModel(
